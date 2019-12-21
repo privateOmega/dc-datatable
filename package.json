@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint -c .eslintrc.json . && echo 'Lint complete.'",
     "lint:fix": "eslint --fix -c .eslintrc.json . && echo 'Lint Fix complete.'",
+    "precommit": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1",
     "semantic-release": "semantic-release"
   },
@@ -31,6 +32,9 @@
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.0.0-beta.5",
+    "lint-staged": "^9.5.0",
+    "prettier": "1.19.1",
     "semantic-release": "^15.4.0"
   },
   "config": {
@@ -41,5 +45,18 @@
   "release": {
     "branch": "master",
     "ci": false
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "eslint"
+    ],
+    "*.{js,jsx,json,md}": [
+      "prettier --list-different"
+    ]
   }
 }
