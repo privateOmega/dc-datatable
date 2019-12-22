@@ -71,5 +71,8 @@
   },
   "peerDependencies": {
     "dc": "^3.1.9"
+  },
+  "dependencies": {
+    "simple-datatables": "^2.1.7"
   }
 }
