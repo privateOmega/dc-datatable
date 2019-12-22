@@ -68,5 +68,8 @@
     "*.{js,jsx,json,md}": [
       "prettier --list-different"
     ]
+  },
+  "peerDependencies": {
+    "dc": "^3.1.9"
   }
 }
