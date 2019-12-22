@@ -2,11 +2,15 @@
   "name": "dc-datatable",
   "version": "0.0.0-development",
   "description": "jquery-free lightweight datatable for dc.js",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "jsdelivr": "dist/umd/dc-datatable.js",
+  "unpkg": "dist/umd/dc-datatable.js",
+  "module": "src/index.js",
   "scripts": {
     "lint": "eslint -c .eslintrc.json . && echo 'Lint complete.'",
     "lint:fix": "eslint --fix -c .eslintrc.json . && echo 'Lint Fix complete.'",
     "precommit": "lint-staged",
+    "build": "rollup -c",
     "test": "echo \"Error: no test specified\" && exit 1",
     "semantic-release": "semantic-release"
   },
@@ -28,6 +32,9 @@
   },
   "homepage": "https://github.com/privateOmega/dc-datatable#readme",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^11.0.0",
+    "@rollup/plugin-json": "^4.0.1",
+    "@rollup/plugin-node-resolve": "^6.0.0",
     "cz-conventional-changelog": "^3.0.2",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.7.0",
@@ -35,6 +42,7 @@
     "husky": "^4.0.0-beta.5",
     "lint-staged": "^9.5.0",
     "prettier": "1.19.1",
+    "rollup-plugin-terser": "^5.1.3",
     "semantic-release": "^15.4.0"
   },
   "config": {
