@@ -70,7 +70,7 @@
     ]
   },
   "peerDependencies": {
-    "dc": "^3.1.9"
+    "dc": "git://github.com/privateomega/dc.js.git#es6"
   },
   "dependencies": {
     "simple-datatables": "^2.1.7"
