@@ -1,13 +1,13 @@
 import resolve from '@rollup/plugin-node-resolve';
 import json from '@rollup/plugin-json';
 import commonjs from '@rollup/plugin-commonjs';
-import { terser } from 'rollup-plugins-terser';
+import { terser } from 'rollup-plugin-terser';
 
 import * as meta from './package.json';
 
 export default {
   input: 'src/index.js',
-  external: ['dc.js'],
+  external: ['dc', 'simple-datatables'],
   plugins: [
     resolve({ browser: true }),
     json({ include: 'package.json', preferConst: true }),
