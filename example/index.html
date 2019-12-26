@@ -32,7 +32,7 @@
         const runDimension = ndx.dimension(function(d) {
           return [fmt(+d.Expt), fmt(+d.Run)];
         });
-        const chart = new dcDatatable.DataTable("#container0", "group1");
+        const chart = new dcDatatable.Datatable("#container0", "group1");
         chart.dimension(runDimension);
 
         chart.render();

@@ -1,9 +1,9 @@
-import * as dc from 'dc';
+import { BaseMixin } from 'dc';
 import { DataTable as SimpleDataTable } from 'simple-datatables';
 
 import { getParentElement } from './helper';
 
-export class Datatable extends dc.BaseMixin {
+export class Datatable extends BaseMixin {
   constructor(parent, chartGroup) {
     super();
 
@@ -27,7 +27,11 @@ export class Datatable extends dc.BaseMixin {
   }
 
   _doRender() {
-    this._parentElement.selectAll('*').remove();
+    let child = this._parentElement.lastElementChild;
+    while (child) {
+      this._parentElement.removeChild(child);
+      child = this._parentElement.lastElementChild;
+    }
 
     const table = document.createElement('table');
     this._parentElement.appendChild(table);
