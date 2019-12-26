@@ -11,7 +11,7 @@
     "lint:fix": "eslint --fix -c .eslintrc.json . && echo 'Lint Fix complete.'",
     "precommit": "lint-staged",
     "build": "rollup -c",
-    "build_umd": "browserify dist/index.js --standalone dcDatatable -o dist/umd/dc-datatable.js",
+    "build_umd": "browserify dist/index.js --outfile dist/umd/dc-datatable.js --standalone dcDatatable",
     "test": "echo \"Error: no test specified\" && exit 1",
     "semantic-release": "semantic-release"
   },
@@ -68,5 +68,12 @@
     "*.{js,jsx,json,md}": [
       "prettier --list-different"
     ]
+  },
+  "peerDependencies": {
+    "d3": "^5.12.0",
+    "dc": "git://github.com/privateomega/dc.js.git#es6"
+  },
+  "dependencies": {
+    "simple-datatables": "^2.1.7"
   }
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>dc-datatable</title>
+    <meta charset="UTF-8" />
+    <linkzz rel="stylesheet" type="text/css" href="../node_modules/dc/dc.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../node_modules/simple-datatables/dist/style.css"
+    />
+  </head>
+  <body>
+    <div id="container0" class="chart-container"></div>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/crossfilter2/1.4.7/crossfilter.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="../node_modules/dc/dist/dc.min.js"
+    ></script>
+    <script type="text/javascript" src="../dist/umd/dc-datatable.js"></script>
+    <script type="text/javascript">
+      d3.csv("example.csv").then(experiments => {
+        const ndx = crossfilter(experiments);
+        const fmt = d3.format("02d");
+        const runDimension = ndx.dimension(function(d) {
+          return [fmt(+d.Expt), fmt(+d.Run)];
+        });
+        const chart = new dcDatatable.Datatable("#container0", "group1");
+        chart.dimension(runDimension);
+
+        chart.render();
+      });
+    </script>
+  </body>
+</html>
