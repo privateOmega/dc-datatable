@@ -19,6 +19,7 @@ export class Datatable extends BaseMixin {
     this._enableScrolling = false;
     this._enablePagingSizeChange = false;
     this._enableHeader = true;
+    this._enableFooter = false;
     this._enableAutoWidth = false;
 
     this._mandatoryAttributes(['dimension']);
@@ -71,6 +72,7 @@ export class Datatable extends BaseMixin {
       data: transformedData,
       fixedColumns: !this._enableAutoWidth,
       header: this._enableHeader,
+      footer: this._enableFooter,
       paging: this._enablePaging,
       perPage: this._size,
       perPageSelect: this._enablePagingSizeChange ? [5, 10, 15, 20, 25] : false,
@@ -164,6 +166,14 @@ export class Datatable extends BaseMixin {
       return this._enableHeader;
     }
     this._enableHeader = enable;
+    return this;
+  }
+
+  enableFooter(enable) {
+    if (!arguments.length) {
+      return this._enableFooter;
+    }
+    this._enableFooter = enable;
     return this;
   }
 
