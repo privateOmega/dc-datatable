@@ -9,7 +9,7 @@ export class Datatable extends BaseMixin {
     super();
 
     this._size = 10;
-    this._columns = [];
+    this._columns = undefined;
     this._order = ascending;
     this._beginSlice = 0;
     this._endSlice = undefined;
@@ -17,6 +17,7 @@ export class Datatable extends BaseMixin {
     this._enableSearch = false;
     this._enablePaging = true;
     this._enableScrolling = false;
+    this._scrollY = '';
     this._enablePagingSizeChange = false;
     this._enableHeader = true;
     this._enableFooter = false;
@@ -70,12 +71,14 @@ export class Datatable extends BaseMixin {
 
     return {
       data: transformedData,
+      columns: this._columns,
       fixedColumns: !this._enableAutoWidth,
       header: this._enableHeader,
       footer: this._enableFooter,
       paging: this._enablePaging,
       perPage: this._size,
       perPageSelect: this._enablePagingSizeChange ? [5, 10, 15, 20, 25] : false,
+      scrollY: this._enableScrolling && this._scrollY,
       searchable: this._enableSearch,
       sortable: this._enableSort,
     };
@@ -151,6 +154,14 @@ export class Datatable extends BaseMixin {
     }
     this._enableScrolling = enable;
     return this._doRedraw();
+  }
+
+  scrollY(scrollY) {
+    if (!arguments.length) {
+      return this._scrollY;
+    }
+    this._scrollY = scrollY;
+    return this;
   }
 
   enablePagingSizeChange(enable) {
