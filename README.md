@@ -86,7 +86,7 @@ const size = chart.size();
 chart.size(25);
 ```
 
-##### void columns(string appId)
+##### void columns(object[] options)
 
 Gets or sets column settings to be used. Check out: https://github.com/fiduswriter/Simple-DataTables/wiki/columns
 
@@ -171,7 +171,7 @@ Get status or enable/disable paging size change dropdown.
 chart.enablePagingSizeChange(true);
 ```
 
-##### void enableHeader((bool enable)
+##### void enableHeader(bool enable)
 
 Get status or set whether to show or hide header row.
 
@@ -179,7 +179,7 @@ Get status or set whether to show or hide header row.
 chart.enableHeader(true);
 ```
 
-##### void enableFooter((bool enable)
+##### void enableFooter(bool enable)
 
 Get status or set whether to show or hide footer row.
 
