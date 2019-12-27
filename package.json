@@ -1,6 +1,6 @@
 {
   "name": "dc-datatable",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "jquery-free lightweight datatable for dc.js",
   "main": "dist/index.js",
   "jsdelivr": "dist/umd/dc-datatable.js",
