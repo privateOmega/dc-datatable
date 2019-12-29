@@ -115,12 +115,12 @@ chart.columns([
 ]);
 ```
 
-##### void order(func order)
+##### void order(string order)
 
 Gets or sets default sort type used in the chart.
 
 ```javascript
-chart.order(d3.ascending);
+chart.order('asc');
 ```
 
 ##### bool enableSort(bool enable)
