@@ -1,4 +1,3 @@
-import { ascending } from 'd3';
 import { BaseMixin } from 'dc';
 import { DataTable as SimpleDataTable } from 'simple-datatables';
 
@@ -10,7 +9,7 @@ export class Datatable extends BaseMixin {
 
     this._size = 10;
     this._columns = undefined;
-    this._order = ascending;
+    this._order = 'asc';
     this._beginSlice = 0;
     this._endSlice = undefined;
     this._enableSort = false;
@@ -51,9 +50,7 @@ export class Datatable extends BaseMixin {
 
   getTableOptions() {
     const data =
-      this._order === ascending
-        ? this.dimension().bottom(Infinity)
-        : this.dimension().top(Infinity);
+      this._order === 'asc' ? this.dimension().bottom(Infinity) : this.dimension().top(Infinity);
 
     let transformedData = {
       headings: Object.keys(data[0]),
